@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import { deleteEvent } from '../services/api';
 export default function Event (props) {
    
     const [e , SetEvent]=useState(props.e)
@@ -17,6 +18,11 @@ export default function Event (props) {
         ...previousE,
         nbParticipants:previousE.nbParticipants+1 ,
          nbTickets:previousE.nbTickets-1}))}
+
+
+         const deleteEvent= async()=>{
+            await deleteEvent(e.id)
+         }
 
     return  <>
     
